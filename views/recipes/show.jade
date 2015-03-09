@@ -1,0 +1,61 @@
+extends ../layout
+
+block content
+	section#articles
+		div.container
+			div.row
+				div(class='col-sm-4 leftbar')
+					for tag in recipe.tags
+						if tag=="Healthy" || tag==" Healthy"
+							div.recipe-tile
+								div(class='img-container' style='background-image: url("../images/uploads/#{recipe.image.path}/#{recipe.image.name.new}.#{recipe.image.extension}");')
+								p.tags= recipe.tags
+								h2
+									a(href='/recipes/#{recipe.url}')= recipe.title
+								if recipe.details.description
+									p.description= recipe.details.description
+								div.petbrosia Submitted by: 
+									a(href='http://petbrosia.com', target="_blank")
+										img(src='/images/petbrosia.png')
+
+				div(class='col-sm-8 rightbar')
+					div.recipe-tile
+						div(class='img-container' style='background-image: url("../images/uploads/#{recipe.image.path}/#{recipe.image.name.new}.#{recipe.image.extension}");')
+						if recipe.tags
+							p.tags= recipe.tags
+						h2= recipe.title
+						if recipe.details.description
+							p.description= recipe.details.description
+						div.social
+							span
+								img(src='/images/ingredients.jpg')
+								div
+									p.provided Submitted by:
+									if recipe.user_id
+										p.user= recipe.user_id
+									else
+										p.user Anonymous
+							div.shares
+								a(href='/recipes/#{recipe.url}', class='facebook')
+								a(href='/recipes/#{recipe.url}', class='twitter')
+								a(href='/recipes/#{recipe.url}', class='pinterest')
+						div.metadetails
+							if user && recipe.user_id == user._id
+								div.modify
+									a('/recipes/#{recipe.url}/edit') Edit
+									a('/recipes/#{recipe.url}/delete') Delete
+							if recipe.details.prep_time
+								p.preptime= recipe.details.prep_time
+							if recipe.details.cook_time
+								p.cooktime= recipe.details.cook_time
+							if recipe.details.servings
+								p.servings= recipe.details.servings
+						div.ingredients
+							h3 Ingredients:
+							for ingredient in recipe.ingredients
+								p= ingredient
+						div.directions
+							h3 Directions:
+							for direction in recipe.directions
+								p= direction
+						div.clear

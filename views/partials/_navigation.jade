@@ -1,0 +1,10 @@
+nav.navbar
+	div.container
+		a(href='/', class='logo', alt='Pet Plates')
+		if !user
+				a(href='/login', class="login") Login 
+		if user
+				a(href='/logout', class="logout") Logout
+		a(href='/recipes/new', class='submit') Submit a Recipe
+			
+			

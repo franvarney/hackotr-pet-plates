@@ -1,0 +1,44 @@
+extends ../layout
+
+block content
+  form(class='form' method='post' action='/recipes/new')
+    legend Submit a Recipe
+    p
+      label Name
+      input(type='text' name='title')
+    p.descriptionnn
+      label Description
+      input(type='textarea' name='description')
+    p
+      label Prep Time (minutes)
+      input(type='text' name='prep_time')
+    p
+      label Cook Time (minutes)
+      input(type='text' name='cook_time')
+    p
+      label Servings
+      input(type='text' name='servings')
+    div.ingredients
+      ul
+        label Ingredient
+        li
+          input(type='text' name='ingredients' id='ingredient')
+      p.add-ingredient Add another ingredient          
+    div.directions
+      ul
+        label Direction
+        li
+          input(type='textarea' name='directions' id='direction')
+      p.add-direction Add another direction
+    p.label
+      label Type
+      select(name='Animal')
+        option(value='0') Choose...
+        option(value='dog') Dog
+        option(value='cat') Cat
+    p
+      label Tags
+      input(type='text' name='tags')
+      p.tip Separated by comma
+    p
+      input(type='submit' value='Submit' id='new-recipe-button')
