@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var User = require('../models/users');
 var Recipe = require('../models/recipes');
 
 /* GET recipes page. */
@@ -20,7 +21,7 @@ router.post('/new', function(req, res, next) {
 	var tags = (req.body.tags).replace(' ','');
 
 	var newRecipe = new Recipe();
-  newRecipe.user_id = req.user._id;
+  newRecipe.username = req.username;
 	newRecipe.title = req.body.title;
 	newRecipe.url = url.replace(/ /g, '-');
 	newRecipe.details.prep_time = req.body.prep_time;
@@ -49,9 +50,33 @@ router.post('/new', function(req, res, next) {
 /* GET recipe page. */
 router.get('/:recipe', function(req, res, next) {
 	Recipe.findOne({ url: req.params.recipe }, function(err, recipe) {
-		if (err) return (err);
-		res.render('recipes/show', { title: 'Express', recipe: recipe });
+    if (err) return (err);
+    res.render('recipes/show', { title: "Needs title", recipe: recipe });
 	});
+});
+
+/* GET recipe edit page */
+router.get('/:recipe/edit', function(req, res, next) {
+  Recipe.findOne({ url: req.params.recipe }, function(err, recipe) {
+    if (err) return (err);
+    res.render('recipes/edit', { title: "Needs title", recipe: recipe });
+  });
+});
+
+/* PUT recipe */
+router.put('/:recipe', function(req, res, next) {
+  Recipe.findOne({ url: req.params.recipe }, function(err, recipe) {
+    if (err) return (err);
+    res.redirect('/' + req.params.recipe)
+  });
+});
+
+/* DELETE recipe */
+router.delete('/:recipe', function(req, res, next) {
+  Recipe.findOne({ url: req.params.recipe }, function(err, recipe) {
+    if (err) return (err);
+    res.redirect('/');
+  });
 });
 
 function isLoggedIn(req, res, next) {
