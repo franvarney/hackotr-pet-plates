@@ -75,7 +75,7 @@ app.use('/recipes', recipes);
 
 // Image upload
 app.use(multer({
-  dest: './images/uploads/',
+  dest: './public/images/uploads/',
   rename: function (fieldname, filename, req, res, next) {
     return filename.replace(/\W+/g, '-').toLowerCase() + Date.now() + "_" + req.user.username;
   },
