@@ -7,7 +7,7 @@ var recipeSchema = new Schema({
     url: { type: String, required: true, index: { unique: true } },
     description: { type: String },
     notes: { type: String },
-    user_id: { type: String },
+    username: { type: String },
     details: {
     	prep_time: { type: String, required: true },
     	cook_time: { type: String, required: true },
