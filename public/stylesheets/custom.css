@@ -132,7 +132,7 @@ h2 a {
 	color: black;
 }
 #articles .directions p {
-  font-size: 20px;
+  font-size: 16px;
   margin-bottom: 2rem;
   font-weight: 200;
 }
@@ -375,12 +375,6 @@ input[type="submit"] {
 }
 legend {
   margin-bottom: 0;
-}
-form{
-	display: none;
-}
-form:first-child {
-  display: block;
 }
 ul {
   margin: 0;
