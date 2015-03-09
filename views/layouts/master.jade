@@ -1,0 +1,24 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible' content='IE=edge')
+    meta(name='viewport' content='width=device-width, initial-scale=1')
+    meta(name='description' content='')
+    meta(name='author' content='')
+    title Pet Food Recipes - #{title}
+    link(href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css')
+    link(rel='icon' type='image/x-icon' href='favicon.ico')
+    link(rel='stylesheet', href='/stylesheets/bootstrap.css')
+    link(href='/stylesheets/custom.css' rel='stylesheet')
+
+
+  body(id='page-top' class='index')
+    div.container
+      include ../partials/_navigation.jade
+      div.main_content
+        block content
+      include ../partials/_footer.jade
+      script(src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js')
+      script(src='/javascripts/bootstrap.min.js')
+      script(src='/javascripts/main.js')

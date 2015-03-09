@@ -1,40 +1,24 @@
-extends layout
+extends ./layouts/sidebar
 
-block content
-	section#articles
-		div.container
-			div.row
-				div(class='col-sm-4 leftbar')
-					for recipe in recipes
-						div.recipe-tile
-							a(href='/recipes/#{recipe.url}')
-								div(class='img-container' style='background-image: url("../images/uploads/#{recipe.image.path}/#{recipe.image.name.new}.#{recipe.image.extension}");')
-								p.tags= recipe.tags
-								h2=recipe.title
-								if recipe.description
-									p.description= recipe.description 
-							div.petbrosia Submitted by: 
-								a(href='http://petbrosia.com', target="_blank")
-									img(src='/images/petbrosia.png')
-
-				div(class='col-sm-8 rightbar')
-					for recipe in recipes
-						div.recipe-tile
-							a(href='/recipes/#{recipe.url}')
-								div(class='img-container' style='background-image: url("../images/uploads/#{recipe.image.path}/#{recipe.image.name.new}.#{recipe.image.extension}");')
-								p.tags= recipe.tags
-								h2=recipe.title
-								if recipe.details.description
-									p.description= recipe.details.description
-								div.social
-									span
-										img(src='/images/ingredients.jpg')
-										div
-											p.provided Submitted by:
-											if recipe.username
-												p.user= recipe.username
-											else
-												p.user Anonymous
-									span.shares 4 Shares
+block innerContent
+	div(class='col-sm-8 rightbar')
+		for recipe in recipes
+			div.recipe-tile
+				a(href='/recipes/#{recipe.url}')
+					div(class='img-container' style='background-image: url("../images/uploads/#{recipe.image.path}/#{recipe.image.name.new}.#{recipe.image.extension}");')
+					p.tags= recipe.tags
+					h2= recipe.title
+					if recipe.details.description
+						p.description= recipe.details.description
+					div.social
+						span
+							img(src='/images/ingredients.jpg')
+							div
+								p.provided Submitted by:
+								if recipe.username
+									p.user= recipe.username
+								else
+									p.user Anonymous
+						span.shares 4 Shares
 
 
