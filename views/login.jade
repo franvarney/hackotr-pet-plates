@@ -3,16 +3,16 @@ extends layout
 block content
 	form(method='post' action='local-login')
 		legend Login
-		label Username
-		input(type='text' name='username')
+		label Email
+		input(type='text' name='email')
 		label Password
 		input(type='password' name='password')
 		input(type='submit' value='Login')
 
 	form(method='post' action='local-signup')
 		legend Signup
-		label Username
-		input(type='text' name='username')
+		label Email
+		input(type='text' name='email')
 		label Password
 		input(type='password' name='password')
 		input(type='submit' value='Signup')

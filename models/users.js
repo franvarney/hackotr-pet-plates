@@ -6,8 +6,8 @@ var bcrypt   = require('bcrypt-nodejs');
 var userSchema = new Schema({
 	username: { type: String },
     local: {
-        username: { type: String, required: true },
-        password: { type: String, required: true}
+        email: { type: String, required: true },
+        password: { type: String, required: true }
     },
     role: {
     	isAdmin: { type: Boolean },
@@ -20,7 +20,7 @@ var userSchema = new Schema({
 	        name: { type: String, default: 'user-avatar' },
 	        mime: { type: String, default: 'image/jpeg' }
 	    },
-	    avatar: {
+	    pet: {
         	path: { type: String, default: 'users/pets' },
 	        name: { type: String, default: '' },
 	        mime: { type: String, default: 'image/jpeg' }
