@@ -9,12 +9,12 @@ router.get('/', function(req, res, next) {
 });
 
 /* GET new recipe page. */
-router.get('/new', function(req, res, next) {
+router.get('/new', isLoggedIn, function(req, res, next) {
   res.render('recipes/new', { title: 'New Recipe' });
 });
 
 /* POST new recipe page. */
-router.post('/new', function(req, res, next) {
+router.post('/new', isLoggedIn, function(req, res, next) {
 	var ingredients = req.body.ingredients;
 	var directions = req.body.directions;
 	var url = ((req.body.title).replace(/[\.,-\/#!$%\^&\*;:{}=\-_`~()]/g,"")).toLowerCase();
@@ -57,7 +57,7 @@ router.get('/:recipe', function(req, res, next) {
 });
 
 /* GET recipe edit page */
-router.get('/:recipe/edit', function(req, res, next) {
+router.get('/:recipe/edit', isLoggedIn, function(req, res, next) {
   Recipe.findOne({ url: req.params.recipe }, function(err, recipe) {
     if (err) return (err);
     res.render('recipes/edit', { title: "Needs title", recipe: recipe });
@@ -65,7 +65,7 @@ router.get('/:recipe/edit', function(req, res, next) {
 });
 
 /* PUT recipe */
-router.put('/:recipe', function(req, res, next) {
+router.put('/:recipe', isLoggedIn, function(req, res, next) {
   Recipe.findOne({ url: req.params.recipe }, function(err, recipe) {
     if (err) return (err);
     res.redirect('/' + req.params.recipe)
@@ -73,7 +73,7 @@ router.put('/:recipe', function(req, res, next) {
 });
 
 /* DELETE recipe */
-router.delete('/:recipe', function(req, res, next) {
+router.delete('/:recipe', isLoggedIn, function(req, res, next) {
   Recipe.findOne({ url: req.params.recipe }, function(err, recipe) {
     if (err) return (err);
     res.redirect('/');
