@@ -21,7 +21,8 @@ router.post('/new', function(req, res, next) {
 	var tags = (req.body.tags).replace(' ','');
 
 	var newRecipe = new Recipe();
-  newRecipe.username = req.username;
+  console.log(req.user.username);
+  newRecipe.username = req.user.username;
 	newRecipe.title = req.body.title;
 	newRecipe.url = url.replace(/ /g, '-');
 	newRecipe.details.prep_time = req.body.prep_time;
