@@ -27,10 +27,10 @@ router.post('/new', isLoggedIn, function(req, res, next) {
     part.resume();
   });
   form.on("file", function(name, file) {
-    if(name === null) {
+    if(file === null) {
       file.resume();
     }
-    if(name !== null) {
+    if(file !== null) {
       var image = (file.originalFilename).split('.');
       var pathParts = (file.path).split('\\');
       var newImage = pathParts[3].split('.');
