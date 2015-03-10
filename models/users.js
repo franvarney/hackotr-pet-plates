@@ -17,8 +17,12 @@ var userSchema = new Schema({
     image: {
         avatar: {
         	path: { type: String, default: 'users/avatar' },
-	        name: { type: String, default: 'user-avatar' },
-	        mime: { type: String, default: 'image/jpeg' }
+	        name: {
+                original: { type: String, default: 'user-avatar' },
+                new: { type: String, default: 'user-avatar' }
+            },
+            extension: { type: String, default: 'png' },
+	        mime: { type: String, default: 'image/png' }
 	    },
 	    pet: {
         	path: { type: String, default: 'users/pets' },
