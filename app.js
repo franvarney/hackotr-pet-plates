@@ -73,18 +73,6 @@ app.use('/', routes);
 app.use('/users', users);
 app.use('/recipes', recipes);
 
-// Image upload
-app.use(multer({
-  dest: './public/images/uploads/',
-  rename: function (fieldname, filename, req, res, next) {
-    return filename.replace(/\W+/g, '-').toLowerCase() + Date.now() + "_" + req.user.username;
-  },
-  onError: function (error, next) {
-    console.log(error);
-    next(error);
-  }
-}))
-
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
     var err = new Error('Not Found');

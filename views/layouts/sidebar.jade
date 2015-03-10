@@ -8,7 +8,7 @@ block content
 					for sidebarRecipe in sidebarRecipes
 						div.recipe-tile
 							a(href='/recipes/#{sidebarRecipe.url}')
-								div(class='img-container' style='background-image: url("../images/uploads/#{sidebarRecipe.image.path}/#{sidebarRecipe.image.name.new}.#{sidebarRecipe.image.extension}");')
+								div(class='img-container' style='background-image: url("/uploads/#{sidebarRecipe.image.path}/#{sidebarRecipe.image.name.new}.#{sidebarRecipe.image.extension}");')
 								p.tags= sidebarRecipe.tags
 								h2= sidebarRecipe.title
 								if sidebarRecipe.description

@@ -1,7 +1,7 @@
 extends ../layouts/master
 
 block content
-  form(class='form' method='post' action='/recipes/new')
+  form(class='form' id='new-recipe-form' method='post' action='/recipes/new' enctype='multipart/form-data')
     legend Submit a Recipe
     p
       label Name
@@ -23,16 +23,18 @@ block content
         label Ingredient
         li
           input(type='text' name='ingredients' id='ingredient')
+          span.remove-ingredient X
       p.add-ingredient Add another ingredient          
     div.directions
       ul
         label Direction
         li
           input(type='textarea' name='directions' id='direction')
+          span.remove-direction X
       p.add-direction Add another direction
     p.label
       label Type
-      select(name='Animal')
+      select(name='animal')
         option(value='0') Choose...
         option(value='dog') Dog
         option(value='cat') Cat
@@ -40,5 +42,8 @@ block content
       label Tags
       input(type='text' name='tags')
       p.tip Separated by comma
+    p
+      label Image
+      input(type='file' id='image' name='image')
     p
       input(type='submit' value='Submit' id='new-recipe-button')
