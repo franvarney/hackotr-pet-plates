@@ -1,15 +1,8 @@
 extends layouts/master
 
 block content
-	form(method='post' action='local-login')
-		legend Login
-		label Email
-		input(type='text' name='email')
-		label Password
-		input(type='password' name='password')
-		input(type='submit' value='Login')
 
-	form(method='post' action='local-signup')
+	form(method='post' action='local-signup' class='form-signup form-active-class')
 		legend Signup
 		label Username
 		input(type='text' name='username')
@@ -18,5 +11,20 @@ block content
 		label Password
 		input(type='password' name='password')
 		input(type='submit' value='Signup')
+		div.haveaccount
+			p.alreadylogin Already have an account? 
+				a.form-login-link Login here
 	div.clear
 
+	form(method='post' action='local-login' class='form-login')
+		legend Login
+		label Email
+		input(type='text' name='email')
+		label Password
+		input(type='password' name='password')
+		input(type='submit' value='Login')
+		div.haveaccountnot
+			p.alreadylogin Need to create an account? 
+				a.form-login-linknot Click here
+
+	div.clear

@@ -8,9 +8,10 @@ a{
 	-o-transition: all .3s ease-in-out;
 	transition: all .3s ease-in-out;
 }
-a:hover, .logo a:hover{
+a:hover, .logo a:hover, .form-login-link, .form-login-linknot{
 	text-decoration: none;
-	color: #e0853b
+	color: #e0853b;
+	cursor: pointer;
 }
 .submit:hover{
 	color: #fadbc2;
@@ -416,4 +417,17 @@ ul {
 sup {
 	top: 0px;
 	margin-left: 2px;
+}
+.form-login, .form-signup {
+  display: none;
+}
+.form-active-class.form-login, .form-active-class.form-signup{
+	display: block;
+}
+.alreadylogin{
+  float: left;
+  clear: both;
+  text-align: center;
+  width: 100%;
+  margin: 2rem 0;
 }
