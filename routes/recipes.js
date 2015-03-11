@@ -38,7 +38,6 @@ router.post('/new', isLoggedIn, function(req, res, next) {
       newRecipe.image.name.new = newImage[0];
       newRecipe.image.extension = image[1];
       newRecipe.image.mime = file.headers['content-type'];
-      console.log(file.path);
     }
   });
   form.on("field", function(name, value) {
