@@ -1,0 +1,13 @@
+extends ../layouts/master
+
+block content
+	p User: #{userAccount.username}
+	p Recipes:
+	if userRecipes
+		ul
+			for recipe in userRecipes
+				li= recipe.title
+	else
+		p No recipes! Why don't you 
+			a(href='/recipes/new') submit 
+			| one!
