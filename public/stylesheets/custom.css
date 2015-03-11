@@ -448,7 +448,7 @@ sup {
 
 
 /*Mobile only styles*/
-@media screen and (max-width: 300px) {
+@media screen and (max-width: 700px) {
 	.logo {
 	  background: url("/images/logo.png") 0 12px no-repeat scroll;
 	  background-size: 230px;
