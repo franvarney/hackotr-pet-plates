@@ -431,3 +431,27 @@ sup {
   width: 100%;
   margin: 2rem 0;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*Mobile only styles*/
+@media screen and (max-width: 300px) {
+	.logo {
+	  background: url("/images/logo.png") 0 12px no-repeat scroll;
+	  background-size: 230px;
+	  width: 55px;
+	}
+}
