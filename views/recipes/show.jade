@@ -23,9 +23,9 @@ block innerContent
 						else
 							p.user Anonymous
 				div.shares
-					a(href='https://www.facebook.com/sharer/sharer.php?u=http://petplate.es/recipes/#{recipe.url}', class='facebook')
-					a(href='http://www.twitter.com/share?url=http://petplat.es/recipes/#{recipe.url}', class='twitter')
-					a(href='http://pinterest.com/pin/create/button/?url=http://petplat.es/recipes/#{recipe.url}&media=https://{{post.image.url}&description={{post.description}}', class='pinterest')
+					a(href='https://www.facebook.com/sharer/sharer.php?u=http://petplate.es/recipes/#{recipe.url}', target='_blank', class='facebook')
+					a(href='http://www.twitter.com/share?url=http://petplat.es/recipes/#{recipe.url}', target='_blank', class='twitter')
+					a(href='http://pinterest.com/pin/create/button/?url=http://petplat.es/recipes/#{recipe.url}&media=https://{{post.image.url}&description={{post.description}}', target='_blank', class='pinterest')
 			div.metadetails
 				if recipe.details.prep_time
 					p.preptime= recipe.details.prep_time
