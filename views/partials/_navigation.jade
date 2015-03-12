@@ -5,7 +5,7 @@ nav.navbar
 			a(href='/login', class="login") Login 
 		if user
 			a(href='/logout', class="logout") Logout
-			a(href='/users/#{user.username}', class="logout")= user.username
+			a(href='/users/#{user.username}', class="username logout")= user.username
 		a(href='/recipes/new', class='submit') Submit a Recipe
 			
 			
