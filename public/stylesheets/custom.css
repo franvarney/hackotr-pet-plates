@@ -330,6 +330,7 @@ form {
   color: #FFF;
   font-size: 18px;
   margin-top: 5px;
+  border-radius: 4px;
 }
 .login:before {
   content: "";
@@ -434,9 +435,35 @@ sup {
 .username{
 	text-transform: capitalize;
 }
+.navbar ul {
+  display: none;
+}
 
-
-
+.navbar ul.login-active {
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 62px;
+}
+.login-active a.username.logout {
+  width: 100%;
+  float: left;
+  display: block;
+  z-index: 9999;
+  position: relative;
+  clear: both;
+}
+.navbar li a {
+  width: 100%;
+  text-align: left;
+  float: left;
+  background: #E0853B;
+  border-radius: 0;
+  margin-top: 0;
+}
+.login-active a.username.logout:first-child {
+  display: none;
+}
 
 
 

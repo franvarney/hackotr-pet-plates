@@ -7,6 +7,10 @@ $(".form-login-linknot").click(function() {
 	$(".form-login ").removeClass("form-active-class");
 });
 
+$(".logout").click(function() {
+  $(".navbar ul").toggleClass("login-active");    
+});
+
 
 
 
