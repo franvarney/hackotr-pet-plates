@@ -462,12 +462,13 @@ sup {
   margin-top: 0;
 }
 .login-active a.username.logout:first-child {
-  display: none;
+  display: 
+  none;
 }
-
-
-
-
+.navbar li a:hover{
+	color: white;
+	text-decoration: underline;
+}
 
 
 
