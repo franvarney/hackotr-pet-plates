@@ -4,7 +4,7 @@ block innerContent
 	div(class='col-sm-8 rightbar')
 		div.recipe-tile
 			div(class='img-container' style='background-image: url("../uploads/#{recipe.image.path}/#{recipe.image.name.new}.#{recipe.image.extension}");')
-			if user && recipe.username == user.username
+			if user && recipe.user_id.username == user.username
 				div.modify
 					a(href='/recipes/#{recipe.url}/edit') Edit
 					a(href='/recipes/#{recipe.url}/delete') Delete
