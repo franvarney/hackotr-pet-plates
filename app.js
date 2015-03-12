@@ -12,6 +12,7 @@ var multer = require('multer');
 
 // Route files
 var routes = require('./routes/index');
+var admin = require('./routes/admin');
 var users = require('./routes/users');
 var recipes = require('./routes/recipes');
 
@@ -70,6 +71,7 @@ app.use(function (req, res, next) {
 });
 
 app.use('/', routes);
+app.use('/admin', admin);
 app.use('/users', users);
 app.use('/recipes', recipes);
 
