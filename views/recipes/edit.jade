@@ -1,1 +1,62 @@
-edit.jade
+extends ../layouts/master
+
+block content
+  form(class='form' id='edit-recipe-form' method='post' action='/recipes/' enctype='multipart/form-data')
+    legend Edit a Recipe
+    div
+      label Name
+      input(type='text' name='title' value='#{recipe.title}')
+    div.description
+      label Description
+      input(type='textarea' name='description' value='#{recipe.description}')
+    div
+      label Prep Time (minutes)
+      input(type='text' name='prep_time' value='#{recipe.details.prep_time}')
+    div
+      label Cook Time (minutes)
+      input(type='text' name='cook_time' value='#{recipe.details.cook_time}')
+    div
+      label Servings
+      input(type='text' name='servings' value='#{recipe.details.servings}')
+    div.ingredients
+      ul
+        label Ingredients
+        for ingredient in recipe.ingredients
+          li
+            input(type='text' name='ingredients' id='ingredient' value='#{ingredient}')
+            span.remove-ingredient Remove
+      p.add-ingredient Add another ingredient
+    div.directions
+      ul
+        label Directions
+        for direction in recipe.directions
+          li
+            input(type='textarea' name='directions' id='direction' value='#{direction}')
+            span.remove-direction Remove
+      p.add-direction Add another direction
+    p.label
+      label Type
+      select(name='type')
+        if(recipe.type == '0')
+          option(value='0' 'selected') Choose...
+        else
+          option(value='0') Choose...
+        if(recipe.type == 'dog')
+          option(value='dog' 'selected') Dog
+        else
+          option(value='dog') Dog
+        if(recipe.type == 'cat')
+          option(value='cat' 'selected') Cat
+        else
+          option(value='cat') Cat
+    p
+      label Tags
+      input(type='text' name='tags' value='#{recipe.tags}')
+      p.tip Separated by comma
+    div
+      label Image
+      input(type='file' id='image' name='image')
+      span Current Image:
+        img(src='/uploads/#{recipe.image.path}/#{recipe.image.name.new}.#{recipe.image.extension}')
+    p
+      input(type='submit' value='Submit' id='new-recipe-button')
