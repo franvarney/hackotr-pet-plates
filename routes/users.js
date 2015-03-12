@@ -5,11 +5,6 @@ var Recipe = require('../models/recipes');
 var multiparty = require('multiparty');
 var async = require('async');
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
-});
-
 /* GET user page. */
 router.get('/:user', function(req, res, next) {
 	async.waterfall([
@@ -19,7 +14,7 @@ router.get('/:user', function(req, res, next) {
 		    callback(null, user);
 			});
 	  },
-	  function(user, callback){      
+	  function(user, callback){
 	    Recipe.find({ username: req.params.user }, function(err, recipes) {
 		    if (err) return (err);
 		    callback(null, user, recipes);
