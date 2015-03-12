@@ -4,27 +4,27 @@ var timestamps = require('mongoose-timestamps');
 var bcrypt   = require('bcrypt-nodejs');
 
 var userSchema = new Schema({
-	username: { type: String },
+	username: { type: String, required: true, index: { unique: true } },
     local: {
-        email: { type: String, required: true },
+        email: { type: String, required: true, index: { unique: true } },
         password: { type: String, required: true }
     },
     role: {
-    	isAdmin: { type: Boolean },
-    	isUser: { type: Boolean },
-    	isBrand: { type: Boolean }
+    	isAdmin: { type: Boolean, default: 0 },
+    	isUser: { type: Boolean, default: 1 },
+    	isBrand: { type: Boolean, default: 0 }
     },
     image: {
         avatar: {
-        	path: { type: String, default: 'users/avatar' },
+        	path: { type: String, default: 'users/avatars' },
 	        name: {
                 original: { type: String, default: 'user-avatar' },
                 new: { type: String, default: 'user-avatar' }
             },
-            extension: { type: String, default: 'png' },
-	        mime: { type: String, default: 'image/png' }
+            extension: { type: String, default: 'jpg' },
+	        mime: { type: String, default: 'image/jpeg' }
 	    },
-	    pet: {
+	    pets: {
         	path: { type: String, default: 'users/pets' },
 	        name: { type: String, default: '' },
 	        mime: { type: String, default: 'image/jpeg' }
