@@ -3,10 +3,6 @@ body{
 	background:#f4f4f4;
 }
 a{
-	-webkit-transition: all .3s ease-in-out;
-	-moz-transition: all .3s ease-in-out;
-	-o-transition: all .3s ease-in-out;
-	transition: all .3s ease-in-out;
 }
 a:hover, .logo a:hover, .form-login-link, .form-login-linknot{
 	text-decoration: none;
@@ -343,7 +339,7 @@ form {
   margin-top: 5px;
   border-radius: 4px;
 }
-.login:before {
+/*.login:before {
   content: "";
   width: 40px;
   height: 40px;
@@ -351,6 +347,27 @@ form {
   position: relative;
   float: left;
   background-size: 29px;
+}*/
+.login span{
+  content: "";
+  height: 40px;
+  background: url('/images/user-avatar.png') 0 0 no-repeat scroll;
+  position: relative;
+  float: left;
+  background-size: 29px;
+  width: 86px;
+  padding-left: 38px;
+  -webkit-transition: all .3s ease-in-out;
+  -moz-transition: all .3s ease-in-out;
+  -o-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+}
+.login span:hover{
+  background: url('/images/user-avatar-hover.png') 0 0 no-repeat scroll;
+  height: 40px;
+  background-size: 29px;
+  width: 86px;
+
 }
 .recipe-tile{
 	float: left;
@@ -448,6 +465,7 @@ sup {
 .username{
 	text-transform: capitalize;
 }
+
 .navbar ul {
   display: none;
 }
@@ -473,6 +491,16 @@ sup {
   background: #E0853B;
   border-radius: 0;
   margin-top: 0;
+}
+.logout span {
+  background: url("/images/down-arrow.png") scroll 0 0 no-repeat;
+  width: 20px;
+  height: 20px;
+  display: block;
+  position: relative;
+  right: -6px;
+  float: right;
+  top: 11px;
 }
 .login-active a.username.logout:first-child {
   display: 
