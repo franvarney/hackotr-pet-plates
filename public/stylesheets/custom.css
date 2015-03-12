@@ -43,10 +43,14 @@ p.add-direction, p.label, p.add-ingredient {
   margin-top: 2rem;
   margin-left: 7px;
 }
-p.add-direction, p.add-ingredient{
-	color: #F69E5D;
-	cursor: pointer;
-	margin-top: 0;
+p.add-direction, p.add-ingredient {
+  color: #F69E5D;
+  cursor: pointer;
+  margin-top: 1rem;
+  padding: 10px 15px;
+  border: 1px solid #F69E5D;
+  border-radius: 2px;
+  margin-left: 0;
 }
 p.add-direction:before, p.add-ingredient:before{
 	content: "+";
@@ -62,6 +66,13 @@ form .ingredients, form .directions {
   width: 100%;
   margin-left: 0;
   padding: 0;
+}
+.remove-direction, .remove-ingredient {
+  float: right;
+  margin-top: -46px;
+  margin-right: 1px;
+  background: #F4F4F4;
+  padding: 12px;
 }
 select {
   clear: both;
@@ -355,16 +366,18 @@ form label {
   font-weight: 100;
   font-size: 14px;
 }
-form input {
+textarea {
+  width: 100%;
+  border: 1px solid #CCC;
+  padding-top: 4px;
+}
+form input, textarea {
   float: left;
   width: 100%;
   clear: both;
   min-height: 49px;
   font-size: 16px;
   padding-left: 8px;
-}
-.descriptionnn input{
-	height: 100px;
 }
 input[type="submit"] {
   background: #E0853B;
@@ -468,6 +481,9 @@ sup {
 .navbar li a:hover{
 	color: white;
 	text-decoration: underline;
+}
+.remove-ingredient {
+  cursor: pointer;
 }
 
 
