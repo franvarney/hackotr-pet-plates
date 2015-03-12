@@ -15,13 +15,16 @@ block innerContent
 				p.description= recipe.details.description
 			div.social
 				span
-					img(src='/images/ingredients.jpg')
+					if recipe.user_id
+						img(src='/uploads/#{recipe.user_id.image.avatar.path}/#{recipe.user_id.image.avatar.name.new}.#{recipe.user_id.image.avatar.extension}')
+					if !recipe.user_id
+						img(src='/uploads/users/avatars/user-avatar.jpg')
 					div
 						p.provided Submitted by:
-						if recipe.username
-							p.user= recipe.username
-						else
-							p.user Anonymous
+							if recipe.user_id
+								p.user= recipe.user_id.username
+							else
+								p.user Anonymous
 				div.shares
 					a(href='https://www.facebook.com/sharer/sharer.php?u=http://petplate.es/recipes/#{recipe.url}', target='_blank', class='facebook')
 					a(href='http://www.twitter.com/share?url=http://petplat.es/recipes/#{recipe.url}', target='_blank', class='twitter')
