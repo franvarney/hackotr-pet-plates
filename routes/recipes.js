@@ -46,6 +46,7 @@ router.post('/new', isLoggedIn, function(req, res, next) {
       var url = ((value).replace(/[\.,-\/#!$%\^&\*;:{}=\-_`~()]/g,"")).toLowerCase();
       newRecipe.url = url.replace(/ /g, '-');
     }
+    if (name == 'description') newRecipe.description = value;
     if (name == 'prep_time') newRecipe.details.prep_time = value;
     if (name == 'cook_time') newRecipe.details.cook_time = value;
     if (name == 'servings') newRecipe.details.servings = value;
