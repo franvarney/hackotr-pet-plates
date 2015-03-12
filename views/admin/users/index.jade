@@ -1,0 +1,26 @@
+extends ../../layouts/master
+
+block content
+	table#users
+		for user in users
+			tr
+				td
+					img(src='/uploads/#{user.image.avatar.path}/#{user.image.avatar.name.new}.#{user.image.avatar.extension}')
+				td= user.username
+				td= user.local.email
+				td
+					ul
+						if user.role.isAdmin == 1
+							li Admin: Yes
+						else
+							li Admin: No
+						if user.role.isUser == 1
+							li User: Yes
+						else
+							li User: No
+						if user.role.isBrand == 1
+							li Brand: Yes
+						else
+							li Brand: No
+				td
+					a(href='/admin/users/#{user.username}/edit') Edit
