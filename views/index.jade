@@ -5,18 +5,21 @@ block innerContent
 		for recipe in recipes
 			div.recipe-tile
 				a(href='/recipes/#{recipe.url}')
-					div(class='img-container' style='background-image: url("./uploads/#{recipe.image.path}/#{recipe.image.name.new}.#{recipe.image.extension}");')
+					div(class='img-container' style='background-image: url("/uploads/#{recipe.image.path}/#{recipe.image.name.new}.#{recipe.image.extension}");')
 					p.tags= recipe.tags
 					h2= recipe.title
 					if recipe.details.description
 						p.description= recipe.details.description
 					div.social
 						span
-							img(src='/images/ingredients.jpg')
+							if recipe.user_id
+								img(src='/uploads/#{recipe.user_id.image.avatar.path}/#{recipe.user_id.image.avatar.name.new}.#{recipe.user_id.image.avatar.extension}')
+							if !recipe.user_id
+								img(src='/uploads/users/avatars/user-avatar.jpg')
 							div
 								p.provided Submitted by:
-								if recipe.username
-									p.user= recipe.username
+								if recipe.user_id
+									p.user= recipe.user_id.username
 								else
 									p.user Anonymous
 						span.shares 4 Shares
