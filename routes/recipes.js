@@ -32,7 +32,7 @@ router.post('/new', isLoggedIn, function(req, res, next) {
     }
     if(file !== null) {
       var image = (file.originalFilename).split('.');
-      var pathParts = (file.path).split('\\');
+      var pathParts = ((file.path).replace('\\','/')).split('/');
       var newImage = pathParts[3].split('.');
       newRecipe.image.name.original = image[0];
       newRecipe.image.name.new = newImage[0];
@@ -65,10 +65,8 @@ router.post('/new', isLoggedIn, function(req, res, next) {
     }
   });
   form.on("close", function() {
-    newRecipe.username = req.user.username;
-    console.log(newRecipe);
+    newRecipe.user_id = req.user._id;
     newRecipe.save(function (err) {
-      console.log("err",err);
       if (err) return err;
       res.redirect('/recipes/' + newRecipe.url);
     });
@@ -78,17 +76,17 @@ router.post('/new', isLoggedIn, function(req, res, next) {
 
 /* GET recipe page. */
 router.get('/:recipe', function(req, res, next) {
-	Recipe.findOne({ url: req.params.recipe }, function(err, recipe) {
+  Recipe.findOne({ url: req.params.recipe }).populate('user_id').exec( function(err, recipe) {
     if (err) return (err);
-    res.render('recipes/show', { title: "Needs title", recipe: recipe });
-	});
+    res.render('recipes/show', { title: 'View Recipe', recipe: recipe })
+  });
 });
 
 /* GET recipe edit page */
 router.get('/:recipe/edit', isLoggedIn, function(req, res, next) {
   Recipe.findOne({ url: req.params.recipe }, function(err, recipe) {
     if (err) return (err);
-    res.render('recipes/edit', { title: "Needs title", recipe: recipe });
+    res.render('recipes/edit', { title: 'Edit Recipe', recipe: recipe });
   });
 });
 
