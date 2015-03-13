@@ -13,7 +13,14 @@ a:hover, .logo a:hover, .form-login-link, .form-login-linknot{
 	color: #fadbc2;
 }
 h2{
-	color: black;
+	color: black;  clear: both;
+  float: left;
+  height: 50px;
+  /* width: 100%; */
+  /* position: relative; */
+  font-size: 16px;
+  color: black;
+  font-weight: 400;
 }
 h2 a:hover{
 	color: #6e380b;
@@ -73,6 +80,10 @@ form .ingredients, form .directions {
 select {
   clear: both;
   float: left;
+  height: 50px;
+  font-size: 16px;
+  color: black;
+  font-weight: 400;
 }
 form ul{
   margin: 0;
@@ -387,6 +398,7 @@ textarea {
   width: 100%;
   border: 1px solid #CCC;
   padding-top: 4px;
+  height: 150px;
 }
 form input, textarea {
   float: left;
@@ -514,12 +526,12 @@ sup {
   cursor: pointer;
 }
 
+#image {
+  background-color: inherit;
+  border: none;
+  margin-top: 5px;
 
-
-
-
-
-
+}
 
 /*Mobile only styles*/
 @media screen and (max-width: 700px) {
