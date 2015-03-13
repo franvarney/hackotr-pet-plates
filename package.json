@@ -24,7 +24,6 @@
     "mongoose-timestamps": "0.0.1",
     "morgan": "~1.5.1",
     "ms": "^0.7.0",
-    "multer": "^0.1.8",
     "multiparty": "^4.1.1",
     "passport": "^0.2.1",
     "passport-local": "^1.0.0",
