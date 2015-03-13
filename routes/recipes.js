@@ -32,7 +32,7 @@ router.post('/new', isLoggedIn, function(req, res, next) {
     }
     if(file !== null) {
       var image = (file.originalFilename).split('.');
-      var pathParts = ((file.path).replace('\\','/')).split('/');
+      var pathParts = ((file.path).replace('\\','/')).split('/'); //TODO Fix dis shit
       var newImage = pathParts[3].split('.');
       newRecipe.image.name.original = image[0];
       newRecipe.image.name.new = newImage[0];
