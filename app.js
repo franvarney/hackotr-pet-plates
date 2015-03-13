@@ -1,7 +1,4 @@
 var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
 var mongoose = require('mongoose');
 var passport = require('passport');
 var fsUtil = require('./helpers/fs');
@@ -10,14 +7,7 @@ var fsUtil = require('./helpers/fs');
 // Set the node environment variable if not set before
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
-// Route files
-var routes = require('./routes/index');
-var admin = require('./routes/admin');
-var users = require('./routes/users');
-var recipes = require('./routes/recipes');
-
 var app = express();
-// var p = require('./config/passport')(passport);
 
 // Database connection
 var config = require('./config/' + process.env.NODE_ENV);
@@ -34,7 +24,7 @@ require('./config/express')(app, passport);
 var models_path = __dirname + '/models';
 fsUtil.walkRequire(models_path);
 
-var p = require('./config/passport')(passport);
+require('./config/passport')(passport);
 
 app.post('/local-signup', passport.authenticate('local-signup', {
   successRedirect : '/',
@@ -59,6 +49,12 @@ app.use(function (req, res, next) {
   }
   next();
 });
+
+// Route files
+var routes = require('./routes/index');
+var admin = require('./routes/admin');
+var users = require('./routes/users');
+var recipes = require('./routes/recipes');
 
 app.use('/', routes);
 app.use('/admin', admin);
