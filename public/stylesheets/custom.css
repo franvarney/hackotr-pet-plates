@@ -40,6 +40,9 @@ h2 a:hover{
 form .ingredients {
   border: none;
 }
+form li {
+  margin-bottom: 5px;
+}
 p.add-direction, p.label, p.add-ingredient {
   margin: 0;
   float: left;
