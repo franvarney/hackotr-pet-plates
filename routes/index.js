@@ -1,6 +1,20 @@
-var express = require('express');
-var router = express.Router();
-var Recipe = require('../models/recipes');
+var express     = require('express');
+var router      = express.Router();
+var mongoose    = require('mongoose');
+var Recipe      = mongoose.model('Recipe');
+var IndexServer = {};
+
+var IndexRoutes = function (server, controllers) {
+	server.get('/', controller.homePage);
+	server.get('/login', controller.login);
+};
+
+IndexServer.init = function (server, controllers) {
+	// TODO debug statement
+	return new IndexRoutes(server, controllers);
+};
+
+module.exports = IndexServer;
 
 router.all('*', function(req, res, next){
 	Recipe.find({ tags: "Peanut Butter" }, function(err, recipe) {
@@ -13,7 +27,7 @@ router.all('*', function(req, res, next){
 /* GET home page. */
 router.get('/', function(req, res, next) {
 	Recipe.find().populate('user_id').exec( function(err, recipes) {
-		res.render('index', { title: 'Home', recipes: recipes })
+		res.render('index', { title: 'Home', recipes: recipes });
 	});
 });
 

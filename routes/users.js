@@ -1,9 +1,10 @@
-var express = require('express');
-var router = express.Router();
-var User = require('../models/users');
-var Recipe = require('../models/recipes');
+var express    = require('express');
+var router     = express.Router();
+var mongoose   = require('mongoose');
+var User       = mongoose.model('User');
+var Recipe     = mongoose.model('Recipe');
 var multiparty = require('multiparty');
-var async = require('async');
+var async      = require('async');
 
 /* GET user page. */
 router.get('/:user', function(req, res, next) {
@@ -20,7 +21,7 @@ router.get('/:user', function(req, res, next) {
 		    callback(null, user, recipes);
 			});
 	  }], function (err, user, recipes) {
-	  	res.render('users/show', { title: "Needs title", userAccount: user, userRecipes: recipes});   
+	  	res.render('users/show', { title: "Needs title", userAccount: user, userRecipes: recipes});
 	  }
 	);
 });

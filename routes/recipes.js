@@ -1,7 +1,8 @@
-var express = require('express');
-var router = express.Router();
-var User = require('../models/users');
-var Recipe = require('../models/recipes');
+var express    = require('express');
+var router     = express.Router();
+var mongoose   = require('mongoose');
+var User       = mongoose.model('User');
+var Recipe     = mongoose.model('Recipe');
 var multiparty = require("multiparty");
 
 /* GET recipes page. */
@@ -17,11 +18,11 @@ router.get('/new', isLoggedIn, function(req, res, next) {
 /* POST new recipe page. */
 router.post('/new', isLoggedIn, function(req, res, next) {
   var newRecipe = new Recipe();
-  var form = new multiparty.Form({ 
-      maxFieldSize: 8192, 
-      maxFields: 50, 
-      autoFiles: true, 
-      uploadDir: './public/uploads/recipes' 
+  var form = new multiparty.Form({
+      maxFieldSize: 8192,
+      maxFields: 50,
+      autoFiles: true,
+      uploadDir: './public/uploads/recipes'
   });
   form.on("part", function(part) {
     part.resume();
