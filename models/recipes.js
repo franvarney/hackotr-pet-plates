@@ -1,6 +1,6 @@
-var mongoose = require('mongoose'),
-	Schema = mongoose.Schema;
+var mongoose   = require('mongoose');
 var timestamps = require('mongoose-timestamps');
+var Schema     = mongoose.Schema;
 
 var recipeSchema = new Schema({
     title:  { type: String, required: true },
@@ -32,6 +32,7 @@ var recipeSchema = new Schema({
         count: { type: Number }
     }
 });
+
 recipeSchema.plugin(timestamps);
 
-module.exports = mongoose.model('Recipe', recipeSchema);
+mongoose.model('Recipe', recipeSchema);
