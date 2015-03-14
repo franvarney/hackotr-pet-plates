@@ -30,7 +30,6 @@ require('./config/express')(app, passport);
 
 // Initialize routes
 require('./middlewares/middlewares').init(app);
-// require('./routes/routes').init(app /*,controllers*/);
 
 // Start application
 app.set('port', process.env.PORT || 3000);

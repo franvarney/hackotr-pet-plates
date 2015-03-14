@@ -40,6 +40,11 @@ Index.login = function (req, res) {
   });
 };
 
+Index.logout = function (req, res) {
+  req.logout();
+  res.redirect('/');
+};
+
 Index.notFound = function (req, res) {
   res.send('That page doesnt exist');
 };

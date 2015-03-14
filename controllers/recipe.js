@@ -33,8 +33,22 @@ RecipeController.create = function (recipe, callabck) {
   });
 };
 
-RecipeController.findOne = function (id, callback) {
+RecipeController.findOneById = function (id, callback) {
   Recipe.findById(id, function (err, recipe) {
+    if (err) return callback(err);
+    callback(err, recipe);
+  });
+};
+
+RecipeController.findOneByUrlAndPopulate = function (url, callback) {
+  Recipe.findOne({ url: url }).populate('user_id').exec(function (err, recipe) {
+    if (err) return callback(err);
+    callback(err, recipe);
+  });
+};
+
+RecipeController.findOneByUrl = function (url, callback) {
+  Recipe.findOne({ url: url }, function (err, recipe) {
     if (err) return callback(err);
     callback(err, recipe);
   });

@@ -3,6 +3,18 @@ var router   = express.Router();
 var mongoose = require('mongoose');
 var User     = mongoose.model('User');
 var Recipe   = mongoose.model('Recipe');
+var AdminServer = {};
+
+var AdminRoutes = function (server, middleware) {
+	server.get('/admin/users', middleware.getAll);
+	server.get('/admin/users/:username/edit', middleware.getToEdit);
+};
+
+AdminServer.init = function (server, middleware) {
+	return new AdminRoutes(server, middleware);
+};
+
+module.exports = AdminServer;
 
 /* GET admin users index page. */
 router.get('/users', function(req, res, next) {

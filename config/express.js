@@ -5,10 +5,9 @@ var cookieParser = require('cookie-parser');
 var flash        = require('connect-flash');
 var session      = require('express-session');
 var favicon      = require('serve-favicon');
-var path = require('path');
+var path         = require('path');
 
 module.exports = function (app, passport) {
-  console.log(__dirname);
   app.set('views', path.join(__dirname, '..', 'views'));
   app.set('view engine', 'jade');
   app.use(logger('dev'));
