@@ -3,6 +3,7 @@ var router = express.Router();
 var User = require('../models/users');
 var Recipe = require('../models/recipes');
 var multiparty = require("multiparty");
+var path = require('path');
 
 /* GET recipes page. */
 router.get('/', function(req, res, next) {
@@ -32,7 +33,7 @@ router.post('/new', isLoggedIn, function(req, res, next) {
     }
     if(file !== null) {
       var image = (file.originalFilename).split('.');
-      var pathParts = ((file.path).replace('\\','/')).split('/'); //TODO Fix dis shit
+      var pathParts = (file.path).split(path.sep);
       var newImage = pathParts[3].split('.');
       newRecipe.image.name.original = image[0];
       newRecipe.image.name.new = newImage[0];
