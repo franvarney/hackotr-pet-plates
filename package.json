@@ -16,7 +16,6 @@
     "express-session": "^1.10.3",
     "finalhandler": "^0.3.3",
     "jade": "~1.9.1",
-    "jquery": "^2.1.3",
     "less-middleware": "1.0.x",
     "merge-descriptors": "^1.0.0",
     "method-override": "^2.3.1",

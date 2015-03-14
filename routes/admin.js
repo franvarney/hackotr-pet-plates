@@ -2,7 +2,7 @@ var express  = require('express');
 var router   = express.Router();
 var mongoose = require('mongoose');
 var User     = mongoose.model('User');
-var Recipe   = mongoose.model('Recipes');
+var Recipe   = mongoose.model('Recipe');
 
 /* GET admin users index page. */
 router.get('/users', function(req, res, next) {

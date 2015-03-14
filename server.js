@@ -7,15 +7,15 @@ var passport = require('passport');
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
 // Get config file
-var config = require('./config/' + process.env.NODE_ENV);
+process.config = require('./config/' + process.env.NODE_ENV);
 
 // Connect to db
-mongoose.connect(config.db + 'fjdkls');
+mongoose.connect(process.config.db);
 var db = mongoose.connection;
-// db.on('error', console.error.bind(console, 'Connection Error:'));
-// db.once('open', function() {
-//   console.log("DB Connected");
-// });
+db.on('error', console.error.bind(console, 'Connection Error:'));
+db.once('open', function() {
+  console.log("DB Connected");
+});
 
 // Bootstrap models
 var models_path = __dirname + '/models';

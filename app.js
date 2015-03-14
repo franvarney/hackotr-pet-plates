@@ -10,8 +10,8 @@ process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 var app = express();
 
 // Database connection
-var config = require('./config/' + process.env.NODE_ENV);
-mongoose.connect(config.db);
+process.config = require('./config/' + process.env.NODE_ENV);
+mongoose.connect(process.config.db);
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'Connection Error:'));
 db.once('open', function() {
