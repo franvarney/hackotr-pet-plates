@@ -218,7 +218,7 @@ footer p {
 	padding: 0;
 }
 .directions {
-	margin-left: 340px;
+	float:left;
 	padding-right: 3rem;
 }
 
