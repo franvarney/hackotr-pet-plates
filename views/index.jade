@@ -13,7 +13,8 @@ block innerContent
 					div.social
 						span
 							if recipe.user_id
-								img(src='/uploads/#{recipe.user_id.image.avatar.path}/#{recipe.user_id.image.avatar.name.new}.#{recipe.user_id.image.avatar.extension}')
+								img(src='/uploads/users/avatars/user-avatar.jpg')
+								<!--img(src='/uploads/#{recipe.user_id.image.avatar.path}/#{recipe.user_id.image.avatar.name.new}.#{recipe.user_id.image.avatar.extension}')-->
 							if !recipe.user_id
 								img(src='/uploads/users/avatars/user-avatar.jpg')
 							div
