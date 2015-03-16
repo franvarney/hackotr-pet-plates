@@ -79,6 +79,7 @@ form .ingredients, form .directions {
   margin-right: 1px;
   background: #F4F4F4;
   padding: 12px;
+  position: relative;
 }
 select {
   clear: both;
