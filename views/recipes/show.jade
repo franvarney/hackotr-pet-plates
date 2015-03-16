@@ -36,11 +36,11 @@ block innerContent
 					p.cooktime= recipe.details.cook_time
 				if recipe.details.servings
 					p.servings= recipe.details.servings
-			div.ingredients
-				h3 Ingredients:
-				for ingredient in recipe.ingredients
-					p= ingredient
 			div.directions
+				div.ingredients
+					h3 Ingredients:
+					for ingredient in recipe.ingredients
+						p= ingredient
 				h3 Directions:
 				for direction in recipe.directions
 					p= direction
