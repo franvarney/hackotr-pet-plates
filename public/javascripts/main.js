@@ -9,4 +9,10 @@ $(document).ready( function() {
 		$(".directions ul li #direction").last().val('');
 	});
 	// TODO Add remove direction function
+
+	$('.add-tag').click( function() {
+		$(".alltags ul li").last().clone().appendTo(".alltags ul");
+		$(".alltags ul li #tags").last().val('');
+	});
+	// TODO Add remove direction function
 });

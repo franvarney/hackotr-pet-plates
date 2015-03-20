@@ -3,7 +3,7 @@ var router = express.Router();
 var Recipe = require('../models/recipes');
 
 router.all('*', function(req, res, next){
-	Recipe.find({ tags: "Peanut Butter" }, function(err, recipe) {
+	Recipe.find({ tags: "Cats" }, function(err, recipe) {
 		if (err) return (err);
 	  res.locals.sidebarRecipes = recipe;
 	  next();

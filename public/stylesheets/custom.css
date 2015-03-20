@@ -43,13 +43,13 @@ form .ingredients {
 form li {
   margin-bottom: 5px;
 }
-p.add-direction, p.label, p.add-ingredient {
+p.add-direction, p.label, p.add-ingredient, p.add-tag {
   margin: 0;
   float: left;
   margin-top: 2rem;
   margin-left: 7px;
 }
-p.add-direction, p.add-ingredient {
+p.add-direction, p.add-ingredient, p.add-tag{
   color: #F69E5D;
   cursor: pointer;
   margin-top: 1rem;
@@ -58,7 +58,7 @@ p.add-direction, p.add-ingredient {
   border-radius: 2px;
   margin-left: 0;
 }
-p.add-direction:before, p.add-ingredient:before{
+p.add-direction:before, p.add-ingredient:before, p.add-tag:before{
 	content: "+";
 	padding-right: 2px;
 }
@@ -75,7 +75,7 @@ form .ingredients, form .directions {
 }
 .remove-direction, .remove-ingredient {
   float: right;
-  margin-top: -46px;
+  margin-top: -51px;
   margin-right: 1px;
   background: #F4F4F4;
   padding: 12px;
@@ -341,7 +341,7 @@ form {
   margin-top: 11rem;
 }
 .social {
-  padding: 1rem 3rem 0;
+  padding: 1rem 2rem 0;
   clear: both;
   float: left;
   width: 100%;
@@ -414,6 +414,7 @@ form input, textarea {
   min-height: 49px;
   font-size: 16px;
   padding-left: 8px;
+  margin-bottom: 4px;
 }
 input[type="submit"] {
   background: #E0853B;

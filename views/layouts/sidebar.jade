@@ -10,9 +10,7 @@ block content
 							a(href='/recipes/#{sidebarRecipe.url}')
 								div(class='img-container' style='background-image: url("/uploads/#{sidebarRecipe.image.path}/#{sidebarRecipe.image.name.new}.#{sidebarRecipe.image.extension}");')
 								p.tags= sidebarRecipe.tags
-								h2= sidebarRecipe.title
-								if sidebarRecipe.description
-									p.description= sidebarRecipe.description 
+								h2= sidebarRecipe.title 
 							div.petbrosia Submitted by: 
 								a(href='http://petbrosia.com', target="_blank")
 									img(src='/images/petbrosia.png')

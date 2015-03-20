@@ -38,10 +38,13 @@ block content
         option(value='0') Choose...
         option(value='dog') Dog
         option(value='cat') Cat
-    p
-      label Tags
-      input(type='text' name='tags')
-      p.tip Separated by comma
+    div.alltags
+      ul
+        label Tags
+        li
+          input(type='text' name='tags' id='tags')
+          span.remove-ingredient Remove
+      p.add-tag Add another tag
     p
       label Image
       input(type='file' id='image' name='image')
