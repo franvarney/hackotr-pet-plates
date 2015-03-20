@@ -49,10 +49,13 @@ block content
           option(value='cat' 'selected') Cat
         else
           option(value='cat') Cat
-    p
-      label Tags
-      input(type='text' name='tags' value='#{recipe.tags}')
-      p.tip Separated by comma
+    div.alltags
+      ul
+        label Tags
+        li
+          input(type='text' name='tags' id='tags')
+          span.remove-ingredient Remove
+      p.add-tag Add another tag
     div
       label Image
       input(type='file' id='image' name='image')

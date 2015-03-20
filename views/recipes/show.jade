@@ -41,7 +41,9 @@ block innerContent
 					h3 Ingredients:
 					for ingredient in recipe.ingredients
 						p= ingredient
-				h3 Directions:
-				for direction in recipe.directions
-					p= direction
+				div.ordered
+					h3 Directions:
+					ol				
+						for direction in recipe.directions
+							li= direction
 			div.clear
