@@ -118,6 +118,7 @@ form li {
 	height: 61px;
 	display: block;
 	position: absolute;
+  margin-left: 1rem;
 }
 
 .logo a {
@@ -559,6 +560,9 @@ sup {
 .container {
   width: 100%;
   overflow-x: hidden;
+}
+.navbar{
+  border: none;
 }
 
 
