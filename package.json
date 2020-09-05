@@ -20,7 +20,7 @@
     "less-middleware": "1.0.x",
     "merge-descriptors": "^1.0.0",
     "method-override": "^2.3.1",
-    "mongoose": "^3.8.24",
+    "mongoose": "^5.10.3",
     "mongoose-timestamps": "0.0.1",
     "morgan": "~1.5.1",
     "ms": "^0.7.0",
